@@ -52,7 +52,16 @@ def B2(s):
         #the bonus score formula when there are letters
 
 def B3(s):
-    pass
+    """ Returns the number of digits (count)
+    in password.
+    
+    PreC: s is a valid password string."""
+    
+    count = 0
+    for c in range(0,len(s)):
+        if s[c] in DIGITS:
+            count += 1
+    return 4*count
 
 def B4(s):
     pass
@@ -64,13 +73,44 @@ def B6(s):
     pass
 
 def D1(s):
-    pass
+    """ Returns the length of password if it is comprised
+    only of letters. Otherwise, returns zero.
+    
+    PreC: s is a valid password string."""
+    
+    n = len(s)
+    if s.isalpha() == True:
+        n = n
+    else:
+        n = 0
+    return n
     
 def D2(s):
-    pass
+    """ Returns the length of password if it is comprised
+    only of digits. Otherwise, returns zero.
+    
+    PreC: s is a valid password string."""
+    
+    n = len(s)
+    if s.isdigit() == True:
+        n = n
+    else:
+        n = 0
+    return n
 
 def D3(s):
-    pass
+    """ Returns the length of the password subtract the number of
+    characters in the password that appear exactly once multiply by three.
+    Testing for repeated characters.
+    
+    PreC: s is a valid password string."""
+    
+    n = len(s)
+    m = 0
+    for c in s:
+        if s.count(c) == 1:
+            m += 1
+    return 3*(n-m)
 
 def D4(s):
     '''
@@ -97,7 +137,8 @@ def D4(s):
 
             
 def D5(s):
-    pass
+    ''' Returns number of triplets in password'''
+    return 3*HowManyTriplets(s, DIGITS)
 
 def D6(s):
     '''returns three times the total number of row-2 triplets'''
